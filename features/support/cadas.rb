@@ -1,10 +1,6 @@
-class Cadastro
-        include Capybara::DSL
-    def cadastrar(nome, email, senha)
-        find('#register_name').set nome
-        find('#register_email').set email
-        find('#register_password').set senha
-        find('.btn-accent').click
-        sleep 5 
-    end
+class Cadastro < SitePrism::Page 
+        element :name, '#register_name'
+        element :email, '#register_email'
+        element :password, '#register_password'
+        element :cadastrar, 'button[type=submit]'
 end
